@@ -1,0 +1,116 @@
+package comp;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Comp {
+
+    public static void main(String[] args) throws IOException {
+        Scanner s = new Scanner(System.in);
+        int vagones = s.nextInt();
+        int posibles = s.nextInt();
+        while(true){
+            int[] valores = new int[vagones];
+            for (int i = 0; i < vagones; i++) {
+                valores[i] = s.nextInt();
+            }
+            int max = 0;
+            int maxprev = 0;
+            int index=0;
+            for (int i = 0; i+posibles <= vagones; i++) {
+                for (int j = 0; j < posibles; j++) {
+                    max+=valores[i+j];
+                    
+                }
+                if (max>=maxprev) {
+                    index = i;
+                    maxprev = max;
+                    
+                }
+                max = 0;
+            }
+            System.out.println((index+1) + " "+ maxprev);
+        
+            vagones = s.nextInt();
+            posibles = s.nextInt();
+            if (vagones ==0 && posibles == 0) {
+                break;
+            }
+        }
+    }
+}
+
+
+package comp;
+
+import java.util.Scanner;
+
+public class Comp {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        while (true) {
+            StringBuilder str = new StringBuilder();
+            char[] inicio = s.nextLine().toCharArray();
+            char[] deseado = s.nextLine().toCharArray();
+            int contador = 0;
+            for (int i = 0; i < deseado.length; i++) {
+                for (int k = 0; k < 10; k++) {
+                    
+                
+                for (int j = i; j < inicio.length; j++) {
+                    if ((deseado[i]+k)==(inicio[j])) {
+                        str.append(inicio[j]);
+                        contador++;
+                    }
+                    if (contador == deseado.length){
+                        break;
+                    }
+                }
+                if (contador == deseado.length){
+                        break;
+                    }
+                    
+                
+            }
+        }
+            System.out.println(str.toString());
+        }
+    }
+}
+
+package comp;
+
+import java.util.Scanner;
+
+public class Comp {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        for (int i = 0; i<n;i++){
+        int lado = s.nextInt();
+        int matriz[][] = new int[lado][lado];
+        for (int j = 0; j<lado;j++){
+            for (int k = 0; k<lado;k++){
+                matriz[j][k] = s.nextInt();
+            }
+        }
+        int count = 0;
+        for (int j = 0; j<lado;j++){
+            for (int k = 0; k<lado;k++){
+                if (matriz[j][k] == matriz[k][j]){
+                    count++;
+                }
+            }
+        }
+        if (count == lado*lado){
+            System.out.println("SI");
+    }
+        else{
+            System.out.println("NO");
+        }
+    }
+    }
+}
+
